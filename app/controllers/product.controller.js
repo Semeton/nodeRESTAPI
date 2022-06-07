@@ -45,7 +45,7 @@ exports.create = (req, res) => {
  */
 exports.findAll = (req, res) => {
   const name = req.query.name;
-  var condition = title ? { title: { [Op.iLike]: `%{title}` } } : null;
+  let condition = name ? { name: { [Op.iLike]: `%{name}` } } : null;
 
   /**
    * Retrieves all matching products
@@ -173,7 +173,7 @@ exports.deleteAll = (req, res) => {
  * @returns Find all available products;
  */
 exports.finAllAvailable = (req, res) => {
-  Tutorial.findAll({ where: { available: true } })
+  Product.findAll({ where: { available: true } })
     .then((data) => {
       res.send(data);
     })
