@@ -3,7 +3,7 @@ const Sequelize = require("sequelize");
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
-  operatorsAliases: false,
+  // operatorsAliases: false,
   pool: {
     max: dbConfig.pool.max,
     min: dbConfig.pool.min,
@@ -15,6 +15,6 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
 const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
-db.products = require("./product.model.js")(sequelize, Sequelize);
+db.products = require("./product.models.js")(sequelize, Sequelize);
 
 module.exports = db;
