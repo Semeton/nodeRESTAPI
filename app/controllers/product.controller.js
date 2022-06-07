@@ -21,7 +21,7 @@ exports.create = (req, res) => {
   const product = {
     name: req.body.name,
     description: req.body.description,
-    published: req.body.available ? req.body.available : false,
+    available: req.body.available ? req.body.available : false,
   };
   /**
    * Save product in the database
